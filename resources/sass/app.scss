@@ -1,5 +1,10 @@
 // Variables
 @import 'variables';
+@import url('~semantic-ui/dist/semantic.min.css');
+@import "style";
+@import "site";
+@import "markdown";
+@import "tocify";
 
 .navbar-laravel {
   background-color: #fff;

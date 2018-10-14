@@ -1,0 +1,50 @@
+.text-center {
+    text-align: center;
+}
+
+/* User register page */
+.register-page {
+  img.captcha {
+    cursor: pointer;
+  }
+}
+
+/* User show page */
+.users-show-page {
+  .ui.feed > .event > .content div:first-child {
+    margin: -0.5rem 0em 0em;
+  }
+  .date {
+    a {
+        color: #595F68;
+    }
+  }
+}
+
+/* Topic index page */
+.p-index-page, .root-page, .t-show-page {
+  .ui.feed > .event > .label {
+    width: 3rem;
+  }
+  .ui.feed > .event > .content {
+    .summary {
+      margin: -1rem 0em 0em;
+      .title {
+        color: #595F68;
+      }
+    }
+    .date {
+      margin: 0.5rem 0em 0em;
+      a {
+        color: #595F68;
+      }
+    }
+  }
+}
+
+.p-show-page {
+    .ui.message.basic.voted-box .voted-users {
+        margin: 14px;
+        margin-bottom: 16px;
+    }
+}

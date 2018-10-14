@@ -1,71 +1,66 @@
-@extends('layouts.app')
+@extends('home.layouts.app')
+
+@section('title', '登录')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <div class="six wide column">
+        <div class="ui stacked segment">
+            <div class="content">
+                <h2>邮箱登录</h2>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                <div class="ui divider"></div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                @include('common.error')
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                <form class="ui form" role="form" method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}
+
+                    <div class="field {{ $errors->has('email') ? 'error' : '' }}">
+                        <div class="ui left icon input">
+                            <i class="envelope icon"></i>
+                            <input type="text" name="email" placeholder="邮箱" value="{{ old('email') }}" required="">
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                        @if ($errors->has('email'))
+                            <div class="ui error message">
+                                <strong>{{ $errors->first('email') }}</strong>
                             </div>
+                        @endif
+                    </div>
+                    <div class="field {{ $errors->has('password') ? 'error' : '' }}">
+                        <div class="ui left icon action input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="密码" value="" required="">
+                            <a class="ui button basic light" href="{{ route('password.request') }}">
+                                忘记密码？
+                            </a>
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
+                        @if ($errors->has('password'))
+                            <div class="ui error message">
+                                <strong>{{ $errors->first('password') }}</strong>
                             </div>
-                        </div>
+                        @endif
+                    </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                    <div class="ui buttons fluid">
+                        <button class="ui blue button" type="submit"><i class="send icon"></i>登录</button>
+                        <div class="or"></div>
+                        <a class="ui button" href="{{ route('register') }}">注册</a>
+                    </div>
+                </form>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+
+                <div class="ui horizontal divider">Or</div>
+
+                <div class="ui warning message">
+                    推荐使用 GitHub 登录！
                 </div>
+
+                {{--<a class="ui basic teal button fluid" href="{{ route('oauth.github') }}"><i class="icon github alternate"></i> Github 登录</a>--}}
+
             </div>
         </div>
     </div>
-</div>
-@endsection
+
+@stop
