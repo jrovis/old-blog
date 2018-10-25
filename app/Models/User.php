@@ -86,7 +86,7 @@ class User extends Authenticatable
     public function githubData()
     {
         $userSocialite = $this->userSocialite();
-        return $userSocialite ? json_decode($userSocialite->data) : null ;
+        return empty($userSocialite) ? json_decode($userSocialite->data) : null ;
     }
 
     /**

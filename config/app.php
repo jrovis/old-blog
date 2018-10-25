@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'InNote'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://innote.cn'),
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         /*
          * Package Service Providers...
          */
+        MercurySeries\Flashy\FlashyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -222,6 +223,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+        * Package aliases...
+        */
+        'Flashy' => MercurySeries\Flashy\Flashy::class,
     ],
 
 ];

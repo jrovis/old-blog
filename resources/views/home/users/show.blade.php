@@ -26,13 +26,14 @@
                     <div class="description"> {{ $user->introduction }}</div>
                 </div>
 
+                @if ($user->githubData())
                 <div class="extra content">
-                    <i class="marker icon"></i> {{ $user->githubData() ? $user->githubData()->location : '' }}
+                    <i class="marker icon"></i> {{ $user->githubData()->location }}
                 </div>
+                @endif
 
                 <div class="extra content">
-                    <button class="ui basic teal button fluid follow" data-act="follow" data-id="{{ $user->id }}"><span
-                                class="state">关注</span></button>
+                    <button class="ui basic teal button fluid follow" data-act="follow" data-id="{{ $user->id }}"><span class="state">关注</span></button>
                 </div>
             </div>
 
