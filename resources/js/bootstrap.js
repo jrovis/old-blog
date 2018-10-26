@@ -10,7 +10,7 @@ window.Popper = require('popper.js').default;
 
 try {
     window.$ = window.jQuery = require('jquery');
-    require('semantic-ui/dist/semantic.min');
+    // require('semantic-ui/dist/semantic.min');
     window.SimpleMDE = require('simplemde/dist/simplemde.min');
     require('select2/dist/js/select2.min');
 } catch (e) {}
