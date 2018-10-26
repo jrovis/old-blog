@@ -22,8 +22,9 @@ class TagsController extends Controller
     public function show($id)
     {
         $tag = $this->tagRepo->getTagById($id);
-        $topics = $this->tagRepo->getTopicsByTags($id, request('filter'));
+//        $topics = $this->tagRepo->getTopicsByTags($id, request('filter'));
 
-        return view('home.tags.show', compact('topics', 'tag'));
+//        return view('home.tags.show', compact('topics', 'tag'));
+        return view('home.tags.show', compact('tag'));
     }
 }

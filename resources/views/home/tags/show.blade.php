@@ -24,9 +24,9 @@
                     <a class="item {{ active_class(if_query('filter', 'recent')) }}" href="{{ route('t.show', ['id' =>$tag->id, 'filter' => 'recent']) }}"><i class="icon feed"></i> 最新 </a>
                 </div>
 
-                @include('home.topics.partials._topic_list', ['topics' => $topics])
+                {{--@include('home.topics.partials._topic_list', ['topics' => $topics])--}}
 
-                {!! $topics->render() !!}
+                {{--{!! $topics->render() !!}--}}
             </div>
         </div>
     </div>
