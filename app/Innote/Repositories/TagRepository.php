@@ -59,4 +59,12 @@ class TagRepository extends BaseRepository
     {
         return $this->tag->where('id', $id)->firstOrFail();
     }
+
+    public function create($tag)
+    {
+        $this->tag->fill(['name' => $tag, 'description' => $tag, 'topics_count' => 1, 'creator' => user()->id]);
+        $this->topic->save();
+
+        return $this->topic;
+    }
 }

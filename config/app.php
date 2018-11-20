@@ -227,6 +227,7 @@ return [
         * Package aliases...
         */
         'Flashy' => MercurySeries\Flashy\Flashy::class,
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
     ],
 
 ];
