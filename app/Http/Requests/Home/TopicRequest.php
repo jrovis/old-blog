@@ -26,22 +26,22 @@ class TopicRequest extends FormRequest
         switch ($this->method()) {
             // CREATE
             case 'POST':
-                // UPDATE
+            // UPDATE
             case 'PUT':
             case 'PATCH':
-                {
-                    return [
-                        'title' => 'required|min:2|max:255',
-                        'body' => 'required|min:3',
-                        'tags' => 'required',
-                    ];
-                }
+            {
+                return [
+                    'title' => 'required|min:2|max:255',
+                    'body' => 'required|min:3',
+                    'tags' => 'required',
+                ];
+            }
             case 'GET':
             case 'DELETE':
             default:
-                {
-                    return [];
-                };
+            {
+                return [];
+            };
         }
     }
 

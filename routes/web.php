@@ -18,7 +18,7 @@ Route::group(['namespace' => 'Home'], function () {
     Route::resource('users', 'UsersController', ['only' => ['show', 'update']]);
     Route::resource('p', 'TopicsController');
     Route::resource('t', 'TagsController', ['only' => ['show']]);
-    Route::post('upload_image', 'TopicsController@uploadImage')->name('p.upload_image');   // 图片上传
+    Route::post('up_img', 'TopicsController@uploadImage')->name('p.up_img');   // 图片上传
 });
 
 

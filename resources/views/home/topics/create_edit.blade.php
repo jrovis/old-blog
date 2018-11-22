@@ -76,7 +76,7 @@
             });
 
             inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
-                uploadUrl: '{{ route('p.upload_image') }}',
+                uploadUrl: '{{ route('p.up_img') }}',
                 extraParams: {
                     '_token': '{{ csrf_token() }}'
                 },

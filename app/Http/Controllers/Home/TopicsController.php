@@ -71,7 +71,6 @@ class TopicsController extends Controller implements CreatorListener
     public function show($id)
     {
         $topic = $this->topicRepo->getTopicWithRelationsById($id, ['tags', 'votedUsers']);
-        // 改写到 redis
         $topic->increment('views_count');
 
         return view('home.topics.show', compact('topic'));
