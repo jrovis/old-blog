@@ -40,8 +40,8 @@ return [
     'connections' => [
 
         'main' => [
-            'salt' => 'your-salt-string',
-            'length' => 'your-length-integer',
+            'salt' => 'evan_innote>',
+            'length' => '12',
         ],
 
         'alternative' => [
