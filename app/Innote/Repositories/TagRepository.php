@@ -43,7 +43,7 @@ class TagRepository extends BaseRepository
             ->with('user')
             ->withOrder($order)
             ->undeleted()
-            ->whereHas('tags', function($query) use ($tagId) {
+            ->whereHas('tags', function ($query) use ($tagId) {
                 $query->where('tag_id', $tagId);
             })
             ->paginate($pageSize);

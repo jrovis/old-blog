@@ -6,7 +6,7 @@ namespace App\Models;
 class Tag extends Model
 {
     protected $fillable = [
-        'name', 'description', 'image', 'topics_count', 'creator'
+        'name', 'description', 'image', 'topics_count', 'creator',
     ];
 
     /**

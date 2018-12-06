@@ -54,7 +54,7 @@ class UserRepository extends BaseRepository
      */
     public function findUserBySource($user, $source = User::SOURCE_GIT_HUB)
     {
-        if (! $user) {
+        if ( !$user) {
             return false;
         }
 
@@ -69,7 +69,7 @@ class UserRepository extends BaseRepository
      */
     public function findUserWithTopicsByUserName($name)
     {
-        if (! $name) {
+        if ( !$name) {
             return false;
         }
 

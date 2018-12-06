@@ -59,7 +59,7 @@ class TopicRepository extends BaseRepository
         $resource = $this->topic->withOrder($request->filter)
             ->byTitle($title);
 
-        if (! $showAll) $resource->undeleted()->published();
+        if ( !$showAll) $resource->undeleted()->published();
 
         return $resource->with('user')
             ->paginate($pageSize);
@@ -81,13 +81,13 @@ class TopicRepository extends BaseRepository
 
         if (is_string($relations)) {
             $resource->with($relations);
-        } else if (is_array($relations) && ! empty($relations)) {
+        } else if (is_array($relations) && !empty($relations)) {
             foreach ($relations as $relation) {
                 $resource->with($relation);
             }
         }
 
-        if (! $showAll) $resource->undeleted();
+        if ( !$showAll) $resource->undeleted();
 
         return $resource->firstOrFail();
     }
@@ -105,7 +105,7 @@ class TopicRepository extends BaseRepository
         if ($id === null) throw new \UnexpectedValueException();
         $resource = $this->topic->where('id', $id);
 
-        if (! $showAll) $resource->undeleted();
+        if ( !$showAll) $resource->undeleted();
 
         return $resource->firstOrFail();
     }
@@ -206,19 +206,19 @@ class TopicRepository extends BaseRepository
         $oldTagIds = $topic->tags()->pluck('tags.id')->toArray();
         $incrementIds = [];
         foreach ($tags as $tag) {
-            if (! in_array($tag, $oldTagIds)) {
+            if ( !in_array($tag, $oldTagIds)) {
                 $incrementIds[] = $tag;
             }
         }
-        if (! empty($incrementIds)) $this->tag->whereIn('id', $incrementIds)->increment('topics_count');
+        if ( !empty($incrementIds)) $this->tag->whereIn('id', $incrementIds)->increment('topics_count');
 
         $decrementIds = [];
         foreach ($oldTagIds as $id) {
-            if (! in_array($id, $tags)) {
+            if ( !in_array($id, $tags)) {
                 $decrementIds[] = $id;
             }
         }
-        if (! empty($decrementIds)) $this->tag->whereIn('id', $decrementIds)->decrement('topics_count');
+        if ( !empty($decrementIds)) $this->tag->whereIn('id', $decrementIds)->decrement('topics_count');
 
         return $tags;
     }
@@ -271,7 +271,7 @@ class TopicRepository extends BaseRepository
             ->orderBy('id', 'desc')
             ->first();
 
-        return (! empty($lastTopic)) && strcmp($lastTopic->title, $data['title']) === 0;
+        return ( !empty($lastTopic)) && strcmp($lastTopic->title, $data['title']) === 0;
     }
 
     /**
